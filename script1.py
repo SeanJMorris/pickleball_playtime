@@ -31,6 +31,8 @@ def run(playwright: Playwright):
     page.goto(SITE_URL)
     return page
 
+print()
+
 def login(page):
     try:
         page.get_by_placeholder("name@example.com").click()
