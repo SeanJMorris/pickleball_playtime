@@ -36,7 +36,7 @@ def run(playwright: Playwright):
 def login(page):
     try:
         page.get_by_placeholder("name@example.com").click()
-        page.get_by_placeholder("name@example.com").fill(PLAYTIME_EMAIL)
+        page.get_by_placeholder("name@example.com").fill("seanj.morris@gmail.com")
         page.get_by_role("button", name="Login").click()
         page.locator("#password").fill(PLAYTIME_PASSWORD)
         page.get_by_role("button", name="Login").click()
