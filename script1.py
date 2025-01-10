@@ -19,6 +19,7 @@ from playwright.sync_api import Playwright, sync_playwright, expect, TimeoutErro
 
 SITE_URL = 'https://www.playtimescheduler.com/login.php'
 PLAYTIME_PASSWORD = os.getenv('PLAYTIME_PASSWORD')
+PLAYTIME_EMAIL = os.getenv('PLAYTIME_EMAIL')
 # date_to_sign_up_for = "11/27/2024" #MUST BE IN MM/DD/YYYY FORMAT e.g. "01/22/2025"
 SESSION_TEXT_TO_FIND = "Bedford - John Glenn Middle School – 4.0"
 # SESSION_TEXT_TO_FIND = "Watertown"
@@ -35,7 +36,7 @@ def run(playwright: Playwright):
 def login(page):
     try:
         page.get_by_placeholder("name@example.com").click()
-        page.get_by_placeholder("name@example.com").fill("seanj.morris@gmail.com")
+        page.get_by_placeholder("name@example.com").fill(PLAYTIME_EMAIL)
         page.get_by_role("button", name="Login").click()
         page.locator("#password").fill(PLAYTIME_PASSWORD)
         page.get_by_role("button", name="Login").click()
